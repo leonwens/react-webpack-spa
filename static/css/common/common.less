@@ -1,0 +1,193 @@
+@-webkit-keyframes loading {
+    0% {
+        -webkit-transform: scale(1)
+    }
+    50% {
+        -webkit-transform: scale(1.5)
+    }
+    100% {
+        -webkit-transform: scale(1)
+    }
+}
+
+.lazyload,
+.lazyloading {
+    opacity: 0;
+}
+.lazyloaded {
+    opacity: 1;
+    -webkit-transition: opacity 300ms ease-in-out;
+    -moz-transition: opacity 300ms ease-in-out;
+    -o-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+}
+
+
+/*一像素解决方案*/
+@media (-webkit-min-device-pixel-ratio:1.5),
+(min-device-pixel-ratio: 1.5) {
+    .border-1px {
+        &::after,
+        &::before {
+            -webkit-transform: scale(.7, .7);
+            -webkit-transform-origin: 0 0;
+            transform: scale(.7, .7);
+        }
+        &::after {
+            -webkit-transform-origin: left bottom;
+        }
+    }
+    .border-top-bottom-1px {
+        &::after,
+        &::before {
+            -webkit-transform: scaleY(.7);
+            -webkit-transform-origin: 0 0;
+            transform: scaleY(.7);
+        }
+        &::after {
+            -webkit-transform-origin: left bottom;
+        }
+    }
+    .border-top-1px {
+        &::before {
+            -webkit-transform: scaleY(.7);
+            -webkit-transform-origin: 0 0;
+            transform: scaleY(.7);
+        }
+    }
+    .border-bottom-1px {
+        &::before {
+            -webkit-transform: scaleY(.7);
+            -webkit-transform-origin: left bottom;
+            transform: scaleY(.7);
+        }
+    }
+    .border-right-1px {
+        &::before {
+            -webkit-transform: scaleY(.7);
+            -webkit-transform-origin: left bottom;
+            transform: scaleY(.7);
+        }
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio:2),
+(min-device-pixel-ratio: 2) {
+    .border-1px {
+        &::after,
+        &::before {
+            -webkit-transform: scale(.5, .5);
+            transform: scale(.5, .5);
+            -webkit-transform-origin: 0 0;
+        }
+    }
+    .border-top-bottom-1px {
+        &::after,
+        &::before {
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+        }
+    }
+    .border-top-1px {
+        &::before {
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            -webkit-transform-origin: 0 0;
+        }
+    }
+    .border-bottom-1px {
+        &::before {
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            -webkit-transform-origin: left bottom;
+        }
+    }
+    .border-right-1px {
+        &::before {
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            -webkit-transform-origin: left bottom;
+        }
+    }
+}
+
+.border-1px(@color, @radius) {
+    position: relative;
+    &:before {
+        content: ' ';
+        display: block;
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid @color;
+        border-radius: @radius;
+    }
+}
+
+.border-top-bottom-1px(@color) {
+    position: relative;
+    &:before,
+    &:after {
+        border-top: 1px solid @color;
+        content: ' ';
+        display: block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+    }
+    &:before {
+        top: 0;
+    }
+    &:after {
+        bottom: 0;
+    }
+}
+
+.border-top-1px(@color) {
+    position: relative;
+    &:before {
+        border-top: 1px solid @color;
+        content: ' ';
+        display: block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+.border-bottom-1px(@color) {
+    position: relative;
+    &:before {
+        border-top: 1px solid @color;
+        content: ' ';
+        display: block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.border-right-1px(@color) {
+    position: relative;
+    &:before {
+        border-right: 1px solid @color;
+        content: ' ';
+        display: block;
+        height: 200%;
+        position: absolute;
+        right: 0;
+        top: -100%;
+    }
+}
+
+.none-bottom-1px() {
+    position: relative;
+    &:before {
+        border-top: none;
+    }
+}
+

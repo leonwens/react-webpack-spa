@@ -1,0 +1,153 @@
+
+/* =============================================================================================
+ * CSS3弹性盒模型（flexbox）
+ * =========================================================================================== */
+
+/* -- 盒模式 .display-box() -------------------------------
+ * 参数：	无
+		
+ * 示例：	.demoStyle{.display-box(); }
+ * 说明：	得到一个 “具有弹性的盒模型外壳” 的元素
+------------------------------------------------------- */
+.display-box(){
+	display:box; 
+	display:-o-box; 
+	display:-ms-box; 
+	display:-moz-box; 
+	display:-webkit-box; 
+}
+
+/* -- 排列模式 .box-orient() ------------------------------
+ * 参数：	@orient	：排列模式		|	默认值：horizontal；备选值：vertical
+		
+ * 示例：	.demoStyle{.display-box(); .box-orient(vertical); }
+ * 说明：	得到一个 “让内部元素垂直排列” 的元素
+ * 备注：	此属性必须与.display-box()属性一起使用
+------------------------------------------------------- */
+.box-orient(@orient:horizontal){
+	        box-orient:@orient; 
+	     -o-box-orient:@orient;
+	    -ms-box-orient:@orient;
+	   -moz-box-orient:@orient;
+	-webkit-box-orient:@orient;
+}
+
+/* -- 排列顺序 .box-direction() ------------------------------
+ * 参数：	@orient	：排列模式		|	默认值：reverse；备选值：normal
+		
+ * 示例：	.demoStyle{.display-box(); .box-direction(); .box-orient(); }
+ * 说明：	得到一组 “让内部元素反向（从右到左）排列” 的元素
+ * 备注：	此属性必须与.display-box()属性一起使用
+------------------------------------------------------- */
+.box-direction(@direction:reverse){
+	        box-direction:@direction; 
+	     -o-box-direction:@direction;
+	    -ms-box-direction:@direction;
+	   -moz-box-direction:@direction;
+	-webkit-box-direction:@direction;
+}
+
+/* -- 盒模型 .box-sizing() --------------------------------
+ * 参数：	@sizing	：盒模型		|	默认值：border-box；备选值：content-box
+		
+ * 示例：	.demoStyle{.box-sizing(); }
+ * 说明：	得到一个 “宽度和高度包含了边框” 的元素
+------------------------------------------------------- */
+.box-sizing(@sizing:border-box){
+	        box-sizing:@sizing; 
+	     -o-box-sizing:@sizing;
+	    -ms-box-sizing:@sizing;
+	   -moz-box-sizing:@sizing;
+	-webkit-box-sizing:@sizing;
+}
+
+/* -- 水平对齐 .box-pack() --------------------------------
+ * 参数：	@pack	：对齐方式	|	默认值：start；备选值：center/end/justify
+		
+ * 示例：	.demoStyle{.box-pack(end); }
+ * 说明：	得到一行 “右对齐” 的元素
+------------------------------------------------------- */
+.box-pack(@pack:center){
+	        box-pack:@pack; 
+	     -o-box-pack:@pack;
+	    -ms-box-pack:@pack;
+	   -moz-box-pack:@pack;
+	-webkit-box-pack:@pack; 
+}
+
+/* -- 垂直对齐 .box-align() --------------------------------
+ * 参数：	@align	：对齐方式	|	默认值：center；备选值：start/end/baseline/stretch
+		
+ * 示例：	.demoStyle{.box-align(); }
+ * 说明：	得到一组 “以最高子元素的垂直中轴线为基准对齐” 的元素
+------------------------------------------------------- */
+.box-align(@align:center){
+	        box-align:@align; 
+	     -o-box-align:@align;
+	    -ms-box-align:@align;
+	   -moz-box-align:@align;
+	-webkit-box-align:@align;
+}
+
+/* -- 分配长度 .box-flex() --------------------------------
+ * 参数：	@flex	：排列模式		|	默认值：1
+		
+ * 示例：	.demoStyle{.display-box(); width:300px; }
+ 			.demoStyle .box1{.box-flex(1); width:50%; }
+ 			.demoStyle .box2{.box-flex(2); width:100%; }
+ * 说明：	得到一个 “宽度为100px” 和 一个 “宽度为200px” 的元素
+ * 备注：	1、此属性的外层必须定义.display-box()属性；
+ 			2、自身必须定义百分比宽度（这个最坑爹，网上所有教程都没提到）；
+			3、宽度值算法：同级元素中flex值最大的为100%，其他的同级元素宽度为100/(中flex最大值)*自身flex值*%，例：上例中的50%=100/2*1*%；
+			4、尽管大多数情况下flex值等于默认值1，但还是建议将1写在参数中，这样有利于代码阅读。
+------------------------------------------------------- */
+.box-flex(@flex:1){
+	        box-flex:@flex; 
+	     -o-box-flex:@flex;
+	    -ms-box-flex:@flex;
+	   -moz-box-flex:@flex;
+	-webkit-box-flex:@flex;
+}
+
+/* -- 元素分配 .box-ordinal-group() --------------------
+ * 参数：	@ordinal	：排列序号		|	默认值：1
+		
+ * 示例：	.demoStyle{.display-box(); width:300px; }
+ 			.demoStyle .box1{.box-ordinal-group(2); width:50%; }
+ 			.demoStyle .box2{.box-ordinal-group(1); width:100%; }
+ * 说明：	得到一组 “box1在右，box2在左” 的元素
+ * 备注：	1、此属性的外层必须定义.display-box()属性；
+			2、尽管ordinal值的默认值等于1，但还是建议将1写在参数中，这样有利于代码阅读。
+------------------------------------------------------- */
+.box-ordinal-group(@ordinal:1){
+	        box-ordinal-group:@ordinal;
+	     -o-box-ordinal-group:@ordinal;
+	    -ms-box-ordinal-group:@ordinal;
+	   -moz-box-ordinal-group:@ordinal;
+	-webkit-box-ordinal-group:@ordinal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

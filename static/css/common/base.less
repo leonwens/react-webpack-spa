@@ -1,0 +1,24 @@
+@import "base_color.less";
+@import "display_flex.less";
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,form,dl,dt,dd,span,p,button,input,th,td,em{margin:0; padding:0; }
+body{.display-flex(); .flex-direction(column); font-family:@font_family;} /* 竖排版，弹性盒模型 */
+
+*{
+    -webkit-tap-highlight-color:transparent;            /* 取消点击高亮 */
+    -webkit-appearance:none;                            /* 取消默认的样式 */
+    -webkit-text-size-adjust:none;                      /* 取消iphone转屏字号变大 */
+    -webkit-font-smoothing: antialiased;                /* 取消锯齿 */
+    -webkit-box-shadow: none;                           /* 取消阴影 */
+    -webkit-border-radius: 0;                           /* 取消圆角 */
+    box-sizing: border-box;
+}
+img{border:0; }
+ul{ list-style:none;}
+input:focus,textarea:focus{outline:none; }
+.clearfix:after{
+	content: '';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
